@@ -1,0 +1,31 @@
+div h1 {
+    margin-bottom: 1.0rem;
+}
+
+div h5 {
+    margin-bottom: 0.25rem;
+}
+
+div h1, h5 {
+    text-align: center;
+}
+
+h5 a {
+    text-decoration: none;
+}
+
+body .container {
+    max-width: 1200px;
+}
+
+.animate-show {
+  opacity: 1;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.50s;
+}
+
+.animate-show.ng-hide {
+  opacity: 0;
+}

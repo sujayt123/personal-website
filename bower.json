@@ -1,0 +1,13 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-resource": "latest",
+    "moment": "latest",
+    "skeleton": "latest",
+    "pace": "latest",
+    "angular-animate": "^1.5.8"
+  }
+}

@@ -1,0 +1,18 @@
+<table class="u-full-width animate-show" ng-show="controller.reads">
+    <thead>
+        <tr>
+            <th>Article</th>
+            <th>Author</th>
+            <th>Excerpt</th>
+            <th>Date Added</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in controller.reads">
+            <td><a href={{item.resolved_url}}> {{item.resolved_title}}</a></td>
+            <td>{{item.author}}</td>
+            <td>{{item.excerpt}}</td>
+            <td>{{item.displayDate}}</td>
+        </tr>
+    </tbody>
+</table>
