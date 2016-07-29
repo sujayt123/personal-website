@@ -1,4 +1,6 @@
+;
 (function() {
+'use strict'
 
     angular.module('website-app')
         .factory('PocketReadsService', readsService)

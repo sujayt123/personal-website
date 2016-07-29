@@ -38,3 +38,6 @@ jspm_packages
 
 # Bower libraries
 public/libs
+
+# Release files (rebuild using grunt)
+public/release
