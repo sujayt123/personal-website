@@ -49,7 +49,7 @@ module.exports = function(grunt) {
     clean: ['public/release/app.js', 'public/release/min-safe'],
 
     watch: {
-        files: ['public/css/**/*', 'public/js/**/*', 'public/**/*.html'],
+        files: ['public/css/**', 'public/js/**', 'public/**/*.html'],
         tasks: ['default'],
     }
 

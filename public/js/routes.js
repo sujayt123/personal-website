@@ -7,6 +7,13 @@ angular.module('website-app', ['ngRoute', 'ngResource', 'ngAnimate'])
 function config($routeProvider, $locationProvider) {
     $routeProvider
 
+        .when('/', {
+            templateUrl: 'views/home.html',
+        })
+
+        .when('/about', {
+            templateUrl: 'views/about.html',
+        })
 
         .when('/reads', {
             templateUrl: 'views/reads.html',
