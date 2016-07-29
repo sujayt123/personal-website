@@ -46,12 +46,14 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ['public/release/app.js', 'public/release/min-safe']
+    clean: ['public/release/app.js', 'public/release/min-safe'],
+
+    watch: {
+        files: ['public/css/**/*', 'public/js/**/*', 'public/**/*.html'],
+        tasks: ['default'],
+    }
 
     });
-
-
-
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -59,7 +61,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
     grunt.registerTask('default', ['ngAnnotate', 'concat', 'uglify', 'cssmin', 'clean']);
+    grunt.registerTask('fresh', ['default', 'watch']);
 };
