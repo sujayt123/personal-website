@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 'public/release/min-safe/routes.js': ['public/js/routes.js'],
                 'public/release/min-safe/PocketReadsService.js': ['public/js/services/PocketReadsService.js'],
                 'public/release/min-safe/ReadsCtrl.js': ['public/js/controllers/ReadsCtrl.js'],
-                'public/release/min-safe/templates.js': ['public/templates.js']
+                'public/release/min-safe/templates.js': ['public/release/templates.js']
             }
         }
     },
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ['public/release/app.js', 'public/release/min-safe', 'public/templates.js'],
+    clean: ['public/release/app.js', 'public/release/min-safe', 'public/release/templates.js'],
 
     watch: {
         files: ['public/css/**', 'public/js/**', 'public/**/*.html'],
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         app: {
             cwd: 'public',
             src: ['views/about.html', 'views/home.html', 'views/reads.html'],
-            dest: 'public/templates.js',
+            dest: 'public/release/templates.js',
             options: {
                 htmlmin: {
                   collapseBooleanAttributes:      true,
