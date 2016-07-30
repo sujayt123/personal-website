@@ -18,14 +18,6 @@ body .container {
     max-width: 1200px;
 }
 
-.animate-show {
-  opacity: 1;
-}
-
-.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
-  transition: all linear 0.50s;
-}
-
-.animate-show.ng-hide {
-  opacity: 0;
+html {
+  overflow-y: scroll;
 }

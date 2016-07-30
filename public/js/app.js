@@ -1,1 +1,1 @@
-angular.module('website-app', ['ngRoute', 'ngResource', 'ngAnimate']);
+angular.module('website-app', ['ngRoute', 'ngResource']);

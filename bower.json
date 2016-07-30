@@ -8,6 +8,5 @@
     "moment": "latest",
     "skeleton": "latest",
     "pace": "latest",
-    "angular-animate": "^1.5.8"
   }
 }
