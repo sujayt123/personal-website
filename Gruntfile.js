@@ -9,21 +9,23 @@ module.exports = function(grunt) {
         },
         app: {
             files: {
+                'public/release/min-safe/app.js': ['public/js/app.js'],
                 'public/release/min-safe/routes.js': ['public/js/routes.js'],
                 'public/release/min-safe/PocketReadsService.js': ['public/js/services/PocketReadsService.js'],
-                'public/release/min-safe/ReadsCtrl.js': ['public/js/controllers/ReadsCtrl.js']
+                'public/release/min-safe/ReadsCtrl.js': ['public/js/controllers/ReadsCtrl.js'],
+                'public/release/min-safe/templates.js': ['public/js/templates.js']
             }
         }
     },
 
     concat: {
-        js: { //target
-            src: ['public/release/min-safe/routes.js', 'public/release/min-safe/PocketReadsService.js', 'public/release/min-safe/ReadsCtrl.js'],
+        js: {
+            src: ['public/release/min-safe/app.js', 'public/release/min-safe/routes.js', 'public/release/min-safe/templates.js', 'public/release/min-safe/PocketReadsService.js', 'public/release/min-safe/ReadsCtrl.js'],
             dest: 'public/release/app.js'
         }
     },
 
-      uglify: {
+    uglify: {
         my_target: {
           files: {
             'public/release/app.min.js': ['public/release/app.js']
@@ -50,8 +52,31 @@ module.exports = function(grunt) {
 
     watch: {
         files: ['public/css/**', 'public/js/**', 'public/**/*.html'],
-        tasks: ['default'],
+        tasks: ['default']
+    },
+
+
+    ngtemplates: {
+        app: {
+            cwd: 'public',
+            src: ['views/about.html', 'views/home.html', 'views/reads.html'],
+            dest: 'public/js/templates.js',
+            options: {
+                htmlmin: {
+                  collapseBooleanAttributes:      true,
+                  collapseWhitespace:             true,
+                  removeAttributeQuotes:          true,
+                  removeComments:                 true, // Only if you don't use comment directives!
+                  removeEmptyAttributes:          true,
+                  removeRedundantAttributes:      true,
+                  removeScriptTypeAttributes:     true,
+                  removeStyleLinkTypeAttributes:  true
+                },
+                module: 'website-app'
+            }
+        }
     }
+
 
     });
 
@@ -62,8 +87,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-angular-templates');
 
     // Default task(s).
-    grunt.registerTask('default', ['ngAnnotate', 'concat', 'uglify', 'cssmin', 'clean']);
+    grunt.registerTask('default', ['ngtemplates', 'ngAnnotate', 'concat', 'uglify', 'cssmin', 'clean']);
     grunt.registerTask('fresh', ['default', 'watch']);
 };

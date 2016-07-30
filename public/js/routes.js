@@ -1,7 +1,7 @@
 ;(function() {
 'use strict'
 
-angular.module('website-app', ['ngRoute', 'ngResource', 'ngAnimate'])
+angular.module('website-app')
     .config(config);
 
 function config($routeProvider, $locationProvider) {
