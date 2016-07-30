@@ -7,6 +7,6 @@
     "angular-resource": "latest",
     "moment": "latest",
     "skeleton": "latest",
-    "pace": "latest",
+    "pace": "latest"
   }
 }
