@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ['public/release/app.js', 'public/release/min-safe'],
+    clean: ['public/release/app.js', 'public/release/min-safe', 'public/js/templates.js'],
 
     watch: {
         files: ['public/css/**', 'public/js/**', 'public/**/*.html'],
@@ -66,7 +66,6 @@ module.exports = function(grunt) {
                   collapseBooleanAttributes:      true,
                   collapseWhitespace:             true,
                   removeAttributeQuotes:          true,
-                  removeComments:                 true, // Only if you don't use comment directives!
                   removeEmptyAttributes:          true,
                   removeRedundantAttributes:      true,
                   removeScriptTypeAttributes:     true,
