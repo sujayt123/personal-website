@@ -31,7 +31,7 @@ html {
 }
 
 #content {
-    margin-top: 15%;
+    margin-top: 18%;
 }
 
 @media screen and (max-width: 550px) {
@@ -52,5 +52,11 @@ html {
     }
     #content {
         margin-top:9%
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .excerpt {
+        display: none;
     }
 }

@@ -4,7 +4,7 @@
         <tr>
             <th>Article</th>
             <th>Author</th>
-            <th>Excerpt</th>
+            <th class="excerpt">Excerpt</th>
             <th>Added</th>
         </tr>
     </thead>
@@ -12,7 +12,7 @@
         <tr ng-repeat="item in controller.reads">
             <td><a href={{item.resolved_url}}> {{item.resolved_title}}</a></td>
             <td>{{item.author}}</td>
-            <td>{{item.excerpt}}</td>
+            <td class="excerpt">{{item.excerpt}}</td>
             <td>{{item.displayDate}}</td>
         </tr>
     </tbody>
