@@ -60,3 +60,9 @@ html {
         display: none;
     }
 }
+
+.tablabgimg {
+    background-image: url('/img/tabla_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}

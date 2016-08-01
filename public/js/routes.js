@@ -21,6 +21,12 @@ function config($routeProvider, $locationProvider) {
     		controllerAs: 'controller'
         })
 
+        .when('/tabla-docs', {
+            templateUrl: 'views/tabla-docs.html',
+            controller: 'TablaDocsCtrl',
+    		controllerAs: 'controller'
+        })
+
         $locationProvider.html5Mode(true);
 
 }

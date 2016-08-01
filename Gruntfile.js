@@ -12,7 +12,9 @@ module.exports = function(grunt) {
                 'public/release/min-safe/app.js': ['public/js/app.js'],
                 'public/release/min-safe/routes.js': ['public/js/routes.js'],
                 'public/release/min-safe/PocketReadsService.js': ['public/js/services/PocketReadsService.js'],
+                'public/release/min-safe/TablaDocsService.js': ['public/js/services/TablaDocsService.js'],
                 'public/release/min-safe/ReadsCtrl.js': ['public/js/controllers/ReadsCtrl.js'],
+                'public/release/min-safe/TablaDocsCtrl.js': ['public/js/controllers/TablaDocsCtrl.js'],
                 'public/release/min-safe/templates.js': ['public/release/templates.js']
             }
         }
@@ -20,7 +22,7 @@ module.exports = function(grunt) {
 
     concat: {
         js: {
-            src: ['public/release/min-safe/app.js', 'public/release/min-safe/routes.js', 'public/release/min-safe/templates.js', 'public/release/min-safe/PocketReadsService.js', 'public/release/min-safe/ReadsCtrl.js'],
+            src: ['public/release/min-safe/app.js', 'public/release/min-safe/routes.js', 'public/release/min-safe/templates.js', 'public/release/min-safe/PocketReadsService.js', 'public/release/min-safe/TablaDocsService.js', 'public/release/min-safe/ReadsCtrl.js', 'public/release/min-safe/TablaDocsCtrl.js'],
             dest: 'public/release/app.js'
         }
     },
@@ -59,7 +61,7 @@ module.exports = function(grunt) {
     ngtemplates: {
         app: {
             cwd: 'public',
-            src: ['views/about.html', 'views/home.html', 'views/reads.html'],
+            src: ['views/about.html', 'views/home.html', 'views/reads.html', 'views/tabla-docs.html'],
             dest: 'public/release/templates.js',
             options: {
                 htmlmin: {

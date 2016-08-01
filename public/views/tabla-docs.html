@@ -1,0 +1,11 @@
+<form class="tablabgimg">
+    <h3 style="text-align:center">Tabla Notes Database</h3>
+    <br>
+    <div class="u-full-width" ng-repeat="key in controller.keys">
+        <label for="{{key}}">{{key}}</label>
+        <select id="{{key}}">
+            <option ng-repeat="value in controller.getValues(key)">{{value}} </option>
+        </select>
+    </div>
+    <input class="button-primary" type="submit" value="Submit">
+</form>

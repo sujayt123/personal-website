@@ -17,8 +17,8 @@ mongoose.connect('mongodb://username:password@ds033307.mlab.com:33307/website-db
 
 exports.setup = function (app) {
     app.get('/pocketReads', getPocketReads);
-
     app.get('/tablaDocs', getTablaDocs);
+    app.get('/tablaDocs/:key', getUniqueValuesForTablaDocsKey);
 
     app.get('*', function(req, res) {
         res.sendfile('./public/index.html');
@@ -41,8 +41,24 @@ function getPocketReads(request, response) {
 
 function getTablaDocs(request, response) {
     var queryObject = request.query;
-    console.log(queryObject);
     mongoose.model('tabladocs').find(queryObject).exec(function(err, tablaDocs) {
         response.send(tablaDocs);
     })
+}
+
+function getUniqueValuesForTablaDocsKey(request, response) {
+    var key = request.params.key;
+    // magic string 'db_keys' corresponds to a list of all keys in the collection's documents
+    if (key === 'db_keys') {
+        mongoose.model('tabladocs').findOne({}, function(err, doc) {
+            response.send({ vals: Object.keys(doc.toJSON())
+                                .filter(function(x) {return (x !== "_id" && x !== 'bols')})});
+        });
+    }
+    // Otherwise, we want a list of all possible values for {key} in the collection's documents
+    else {
+        mongoose.model('tabladocs').distinct(key, function(err, values) {
+            response.send({vals: values});
+        })
+    }
 }
