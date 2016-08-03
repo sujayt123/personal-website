@@ -11,6 +11,7 @@ function TablaDocsCtrl(TablaDocsService, $httpParamSerializer) {
     var ctrl = this;
     ctrl.showForm = true;
     ctrl.model = {}
+    ctrl.displayError = false;
 
     var getDictionary = function() {
         var k = {}
@@ -41,7 +42,11 @@ function TablaDocsCtrl(TablaDocsService, $httpParamSerializer) {
         TablaDocsService.getTablaDocs(ctrl.model)
             .$promise.then(function(result) {
                 ctrl.showForm = false;
-                ctrl.compositions = result["vals"];
+                    ctrl.compositions = result["vals"];
+                    if (!ctrl.compositions.length) {
+                        console.log("WHAT?")
+                        ctrl.displayError = true;
+                    }
             });
     }
 
