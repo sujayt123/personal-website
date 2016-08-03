@@ -41,13 +41,8 @@ function TablaDocsCtrl(TablaDocsService, $httpParamSerializer) {
         TablaDocsService.getTablaDocs(ctrl.model)
             .$promise.then(function(result) {
                 ctrl.showForm = false;
-                ctrl.compositions = result["vals"].map(
-                    function(x) {
-                        console.log(JSON.stringify(x.bols).replace(new RegExp("\\n","g"), "<br /"));
-                        return JSON.stringify(x.bols).replace(new RegExp("\n","g"), "<br /");
-                    }
-                );
-            })
+                ctrl.compositions = result["vals"];
+            });
     }
 
     getDictionary();

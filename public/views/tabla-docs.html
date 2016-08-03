@@ -1,5 +1,5 @@
-<div class="tablabgimg">
-    <form ng-show="controller.showForm" ng-submit="controller.submitForm()">
+<div>
+    <form class="tablabgimg" ng-show="controller.showForm" ng-submit="controller.submitForm()">
         <h3 style="text-align:center">Tabla Notes Database</h3>
         <br>
         <div class="row" ng-repeat="key in controller.keys">
@@ -13,8 +13,10 @@
         <input class="button-primary" type="submit" value="Submit">
     </form>
     <div ng-hide="controller.showForm">
-        <div ng-repeat="comp in controller.compositions">
-            {{comp}}
+        <div ng-repeat="comp in controller.compositions track by $index" style="white-space:pre-wrap;">
+            <strong><h4> {{$index+1}}.  {{comp.taal}} taal, {{comp.gharana}} {{comp.comp}} </h4></strong>
+            {{comp.bols}}
+            <br>
         </div>
     </div>
 </div>
