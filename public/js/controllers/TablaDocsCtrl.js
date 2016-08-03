@@ -5,11 +5,12 @@
     angular.module('website-app')
         .controller('TablaDocsCtrl', TablaDocsCtrl);
 
+TablaDocsCtrl.$inject = ['TablaDocsService', '$httpParamSerializer'];
 
-TablaDocsCtrl.$inject = ['TablaDocsService']
-
-function TablaDocsCtrl(TablaDocsService) {
+function TablaDocsCtrl(TablaDocsService, $httpParamSerializer) {
     var ctrl = this;
+    ctrl.showForm = true;
+    ctrl.model = {}
 
     var getDictionary = function() {
         var k = {}
@@ -34,6 +35,19 @@ function TablaDocsCtrl(TablaDocsService) {
 
     ctrl.getValues = function(key) {
         return ctrl.dictionary[key];
+    }
+
+    ctrl.submitForm = function() {
+        TablaDocsService.getTablaDocs(ctrl.model)
+            .$promise.then(function(result) {
+                ctrl.showForm = false;
+                ctrl.compositions = result["vals"].map(
+                    function(x) {
+                        console.log(JSON.stringify(x.bols).replace(new RegExp("\\n","g"), "<br /"));
+                        return JSON.stringify(x.bols).replace(new RegExp("\n","g"), "<br /");
+                    }
+                );
+            })
     }
 
     getDictionary();

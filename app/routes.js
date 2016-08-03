@@ -42,7 +42,7 @@ function getPocketReads(request, response) {
 function getTablaDocs(request, response) {
     var queryObject = request.query;
     mongoose.model('tabladocs').find(queryObject).exec(function(err, tablaDocs) {
-        response.send(tablaDocs);
+        response.send({vals: tablaDocs});
     })
 }
 

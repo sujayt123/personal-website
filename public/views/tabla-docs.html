@@ -1,11 +1,20 @@
-<form class="tablabgimg">
-    <h3 style="text-align:center">Tabla Notes Database</h3>
-    <br>
-    <div class="u-full-width" ng-repeat="key in controller.keys">
-        <label for="{{key}}">{{key}}</label>
-        <select id="{{key}}">
-            <option ng-repeat="value in controller.getValues(key)">{{value}} </option>
-        </select>
+<div class="tablabgimg">
+    <form ng-show="controller.showForm" ng-submit="controller.submitForm()">
+        <h3 style="text-align:center">Tabla Notes Database</h3>
+        <br>
+        <div class="row" ng-repeat="key in controller.keys">
+            <div class="ten columns offset-by-one">
+                <label for="{{key}}">{{key}}</label>
+                <select class="u-full-width" id="{{key}}" ng-model="controller.model[key]">
+                    <option ng-repeat="value in controller.getValues(key)">{{value}} </option>
+                </select>
+            </div>
+        </div>
+        <input class="button-primary" type="submit" value="Submit">
+    </form>
+    <div ng-hide="controller.showForm">
+        <div ng-repeat="comp in controller.compositions">
+            {{comp}}
+        </div>
     </div>
-    <input class="button-primary" type="submit" value="Submit">
-</form>
+</div>
