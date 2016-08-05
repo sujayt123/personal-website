@@ -24,7 +24,12 @@ function ReadsCtrl(PocketReadsService) {
                     else {
                         item.author = "N/A";
                     }
-                    item.excerpt = item.excerpt.substring(0, 150) + "...";
+                    if (item.images) {
+                        item.excerpt = ""
+                    }
+                    else {
+                        item.excerpt = item.excerpt + "...";
+                    }
                     item.displayDate = moment.unix(item.time_added).format("MM/DD");
                 })
                 arr_reads.sort(function(a, b) {
