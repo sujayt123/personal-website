@@ -26,12 +26,43 @@ html {
   position: fixed;
 }
 
+.centered {
+  text-align: center;
+}
+
 #sidebar {
     margin-top: 23%;
 }
 
 #content {
     margin-top: 18%;
+}
+
+.author {
+    text-align: left;
+    width: 49%;
+    display: inline-block;
+}
+
+.readBoundingBox {
+    border: 1px solid #d1d0c9;
+    padding-top:10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+
+}
+
+.readsImage {
+    align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.date {
+    text-align: right;
+    width:50%;
+    display: inline-block;
 }
 
 @media screen and (max-width: 550px) {

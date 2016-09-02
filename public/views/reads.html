@@ -1,19 +1,19 @@
-<center> <h5> What I've been reading</h5> </center>
+<h5 class="centered"> What I've been reading </h5>
 <br>
 <div ng-repeat="item in controller.reads" style="padding-bottom:15px">
-    <div style="border: 1px solid #d1d0c9; padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px">
+    <div class="readBoundingBox">
         <div class="row">
-            <div class="u-full-width" style="text-align:center">
-                <h5><a href={{item.resolved_url}}> {{item.resolved_title}}</a></h5>
+            <div class="u-full-width centered">
+                <h5><a target="_blank" href={{item.resolved_url}}> {{item.resolved_title}}</a></h5>
             </div>
         </div>
         <div class="row">
-                <img class="u-max-full-width" src="{{item.image.src}}" style="align: center; padding-left: 20px; padding-right:20px;">
+            <img class="u-max-full-width readsImage" src="{{item.image.src}}">
         </div>
         <br>
         <div ng-show="{{item.excerpt != ''}}">
         <div class="row">
-            <div class="ten columns offset-by-one" style="text-align:center">
+            <div class="ten columns offset-by-one centered">
                 {{item.excerpt}}
             </div>
         </div>
@@ -21,12 +21,8 @@
         <br>
         </div>
         <div class="row">
-            <div class="nine columns" style="text-align:left">
-                &nbsp;&nbsp; {{item.author}}
-            </div>
-            <div class="three columns" style="text-align:right">
-                {{item.displayDate}}&nbsp;&nbsp;
-            </div>
+            <p class="author">  &nbsp;&nbsp; {{item.author}}</p>
+            <p class="date"> {{item.displayDate}} &nbsp;&nbsp;</p>
         </div>
     </div>
 </div>
