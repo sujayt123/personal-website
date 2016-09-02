@@ -11,7 +11,7 @@
                 <img class="u-max-full-width" src="{{item.image.src}}" style="align: center; padding-left: 20px; padding-right:20px;">
         </div>
         <br>
-        <div ng-show="{{item.excerpt}}">
+        <div ng-show="{{item.excerpt != ''}}">
         <div class="row">
             <div class="ten columns offset-by-one" style="text-align:center">
                 {{item.excerpt}}
